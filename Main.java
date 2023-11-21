@@ -22,6 +22,10 @@ public class Main
         node3.setLeftChild(node6);
         node3.setRightChild(node7);
 
-        tree.breadthFirstSearchUsingLoop();
+        tree.inorderTraversal(root);
     }
 }
+
+    //        1
+    //   2          3
+    // 4   5      6   7

@@ -120,4 +120,57 @@ public class BinaryTree
             }
         }
     }
+
+    public void recursiveDFS()
+    {
+
+    }
+
+
+
+    // Method to perform pre-order traversal of the binary tree
+    public void preorderTraversal(Node root) 
+    {
+        if (root != null) 
+        {
+            // Visit the current node
+            System.out.print(root.data + " ");
+
+            // Recursively traverse the left subtree
+            preorderTraversal(root.getLeftChild());
+
+            // Recursively traverse the right subtree
+            preorderTraversal(root.getRightChild());
+        }
+    }
+
+    public void postorderTraversal(Node root) 
+    {
+        if (root != null) 
+        {
+            // Recursively traverse the left subtree
+            postorderTraversal(root.getLeftChild());
+
+            // Recursively traverse the right subtree
+            postorderTraversal(root.getRightChild());
+
+            // Visit the current node
+            System.out.print(root.data + " ");
+        }
+    }
+
+    public void inorderTraversal(Node root) 
+    {
+        if (root != null) 
+        {
+            // Recursively traverse the left subtree
+            inorderTraversal(root.getLeftChild());
+
+            // Visit the current node
+            System.out.print(root.data + " ");
+
+            // Recursively traverse the right subtree
+            inorderTraversal(root.getRightChild());
+        }
+    }
 }
