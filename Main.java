@@ -3,29 +3,26 @@ public class Main
     public static void main(String[] args) 
     {
 
-        Node root = new Node(1);
-        BinaryTree tree = new BinaryTree(root);
+        BST tree = new BST();
 
-        // Example usage
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        Node node5 = new Node(5);
-        Node node6 = new Node(6);
-        Node node7 = new Node(7);
+        tree.insertNode(5);
+        tree.insertNode(3);
+        tree.insertNode(7);
+        tree.insertNode(2);
+        tree.insertNode(4);
+        tree.insertNode(6);
+        tree.insertNode(8);
 
+        // tree.inorderTraversal(tree.root);
 
-        root.setLeftChild(node2);
-        root.setRightChild(node3);
-        node2.setLeftChild(node4);
-        node2.setRightChild(node5);
-        node3.setLeftChild(node6);
-        node3.setRightChild(node7);
+        tree.BFSrecursive();
 
-        tree.inorderTraversal(root);
+        TNode returned = tree.search(4);
+        returned = tree.findParent(tree.root , returned);
+
+        System.out.println("\n" + returned.data);
     }
 }
-
-    //        1
-    //   2          3
-    // 4   5      6   7
+    //        5
+    //   3          7
+    // 2   4      6   8

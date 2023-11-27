@@ -1,30 +1,30 @@
-public class Node
+public class TNode
 {
     int data;
-    Node leftChild;
-    Node rightChild;
+    TNode leftChild;
+    TNode rightChild;
 
-    public Node(int data)
+    public TNode(int data)
     {
         this.data = data;
     }
 
-    public void setLeftChild(Node toSet)
+    public void setLeftChild(TNode toSet)
     {
         this.leftChild = toSet;
     }
     
-    public void setRightChild(Node toSet)
+    public void setRightChild(TNode toSet)
     {
         this.rightChild = toSet;
     }
 
-    public Node getLeftChild()
+    public TNode getLeftChild()
     {
         return this.leftChild;
     }
 
-    public Node getRightChild()
+    public TNode getRightChild()
     {
         return this.rightChild;
     }
