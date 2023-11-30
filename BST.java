@@ -2,6 +2,7 @@ import java.util.LinkedList;//Used in BFS functions
 import java.util.Queue;//Used in BFS functions
 import java.util.Stack;//Used in DFS function
 
+
 //add my own classes later
 //THIS TREE WORKS WITHOUT REPEATING VALUES eg REPEATING VALUES WILL NOT BE INSERTED AND IGNORED
 
@@ -321,5 +322,124 @@ public class BST
         }
         // no need for any else above becase each condition has return
         // return left != null ? left : right; 
+    }
+
+
+
+    public int findDepth(TNode node, TNode target, int depth) 
+    {
+
+        if (node == target) 
+        {
+            return depth;
+        }
+        else if(target.data < node.data)
+        {
+            return findDepth(node.getLeftChild(), target, depth + 1);
+        }
+        else if(target.data > node.data)
+        {
+            return findDepth(node.getRightChild(), target, depth + 1);
+        }
+        else 
+        {
+            return -1; // Node not found
+        }
+    }
+    
+
+
+    public int findTreeDepth(TNode node) //not working properly
+    {
+        if (node == null) 
+        {
+            return 0;
+        }
+
+        int leftDepth = findTreeDepth(node.getLeftChild());
+        int rightDepth = findTreeDepth(node.getRightChild());
+
+        return 1 + (leftDepth >= rightDepth? leftDepth : rightDepth); //equal because if both equal then return that value
+        // return 1 + Math.max(leftDepth,rightDepth);
+    }
+
+
+    public boolean isFullTree(TNode node)//meaning either full or zero children
+    {
+        if (node == null) //for root node if = null
+        {
+            return true;
+        }
+        else if (node.getLeftChild() == null && node.getRightChild() == null) 
+        {
+            return true;
+        }
+        else if (node.getLeftChild() != null && node.getRightChild() != null) 
+        {
+            return isFullTree(node.getLeftChild()) && isFullTree(node.getRightChild());
+        }
+        else
+            return false;
+    }
+
+
+    public boolean areNodesAtSameLevel(TNode parentNode, TNode firstNode, TNode secondNode) 
+    {
+        int depthA = findDepth(parentNode, firstNode, 0);
+        int depthB = findDepth(parentNode, secondNode, 0);
+
+        if (depthA != -1 && depthB != -1 && depthA == depthB)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
+
+    public int countNodes(TNode node) 
+    {
+        if (node == null) 
+        {
+            return 0;
+        }
+
+        return 1 + (countNodes(node.getLeftChild()) + countNodes(node.getRightChild()));
+    }
+
+
+    public boolean areEqual(TNode node1, TNode node2) 
+    {
+        if (node1 == null && node2 == null) 
+        {
+            return true;
+        }
+
+        if (node1 == null || node2 == null) 
+        {
+            return false;
+        }
+
+        return node1.data == node2.data && areEqual(node1.getLeftChild(), node2.getLeftChild()) && areEqual(node1.getRightChild(), node2.getRightChild());
+    }
+
+
+    public boolean areSameShape(TNode node1, TNode node2) //if shape of tree same. not considering data
+    {
+        if (node1 == null && node2 == null) 
+        {
+            return true;
+        }
+        else if (node1 == null || node2 == null) 
+        {
+            return false;
+        }
+        else if (areSameShape(node1.getLeftChild(), node2.getLeftChild()) && 
+                 areSameShape(node1.getRightChild(), node2.getRightChild())) 
+        {
+            return true;
+        }
+        else
+            return false;
     }
 }

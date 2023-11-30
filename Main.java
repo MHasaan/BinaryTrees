@@ -12,15 +12,19 @@ public class Main
         tree.insertNode(4);
         tree.insertNode(6);
         tree.insertNode(8);
+        tree.insertNode(10);
 
         // tree.inorderTraversal(tree.root);
 
-        tree.BFSrecursive();
+        // tree.BFSrecursive();
 
-        TNode returned = tree.search(4);
-        returned = tree.findParent(tree.root , returned);
+        // TNode returned = tree.search(4);
+        // returned = tree.findParent(tree.root , returned);
 
-        System.out.println("\n" + returned.data);
+        // System.out.println(tree.findDepth(tree.root, tree.search(10) , 0 ));
+        // System.out.println(tree.findTreeDepth(tree.root)); //not working
+
+        // System.out.println("\n" + returned.data);
     }
 }
     //        5
