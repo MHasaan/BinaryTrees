@@ -1,9 +1,8 @@
 import java.util.LinkedList;//Used in BFS functions
 import java.util.Queue;//Used in BFS functions
-import java.util.Stack;//Used in DFS function
 
 
-//add my own classes later
+//will add my own classes later
 //THIS TREE WORKS WITHOUT REPEATING VALUES eg REPEATING VALUES WILL NOT BE INSERTED AND IGNORED
 
 public class BST
@@ -77,7 +76,7 @@ public class BST
 
     public void deleteNode(int data) 
     {
-        deleteNode(root, data);
+        this.root = deleteNode(root, data);
     }
 
     private TNode deleteNode(TNode rootNode, int dataToDelete) 
@@ -113,7 +112,7 @@ public class BST
                 rootNode.setRightChild( deleteNode(rootNode.getRightChild(), rootNode.data) );
             }
         }
-                return rootNode;
+        return rootNode;
     }
 
     private int SucessorInOrder(TNode node) 
@@ -216,50 +215,43 @@ public class BST
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
+        //delete this function //
+    // public void DFSiterative()           //preorder
+    // {
+    //     if (this.root != null) 
+    //     {
+    //         Stack<TNode> stack = new Stack<>();
+    //         TNode node = this.root;
 
-    public void DFSiterative() 
-    {
-        if (this.root != null) 
-        {
-            Stack<TNode> stack = new Stack<>();
-            TNode node = this.root;
+    //         stack.push(this.root);
 
-            stack.push(this.root);
+    //         while (!stack.isEmpty()) 
+    //         {
+    //             System.out.print( stack.pop().data + " ");
 
-            while (!stack.isEmpty()) 
-            {
-                System.out.print( stack.pop().data + " ");
+    //             if (node.hasLeft()) 
+    //             {
+    //                 stack.push(node.getLeftChild());
+    //             }
 
-                if (node.hasLeft()) 
-                {
-                    stack.push(node.getLeftChild());
-                }
-
-                if (node.hasRight()) 
-                {
-                    stack.push(node.getRightChild());
-                }
-            }
-        }
-    }
+    //             if (node.hasRight()) 
+    //             {
+    //                 stack.push(node.getRightChild());
+    //             }
+    //         }
+    //     }
+    // }
 
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
-
-    // Method to perform pre-order traversal of the binary tree
     public void preorderTraversal(TNode root) 
     {
         if (root != null) 
         {
-            // Visit the current node
             System.out.print(root.data + " ");
-
-            // Recursively traverse the left subtree
             preorderTraversal(root.getLeftChild());
-
-            // Recursively traverse the right subtree
             preorderTraversal(root.getRightChild());
         }
     }
@@ -268,13 +260,8 @@ public class BST
     {
         if (root != null) 
         {
-            // Recursively traverse the left subtree
             postorderTraversal(root.getLeftChild());
-
-            // Recursively traverse the right subtree
             postorderTraversal(root.getRightChild());
-
-            // Visit the current node
             System.out.print(root.data + " ");
         }
     }
@@ -283,13 +270,8 @@ public class BST
     {
         if (root != null) 
         {
-            // Recursively traverse the left subtree
             inorderTraversal(root.getLeftChild());
-
-            // Visit the current node
             System.out.print(root.data + " ");
-
-            // Recursively traverse the right subtree
             inorderTraversal(root.getRightChild());
         }
     }

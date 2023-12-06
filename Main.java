@@ -13,11 +13,29 @@ public class Main
         tree.insertNode(6);
         tree.insertNode(8);
         tree.insertNode(10);
+        
 
         // tree.inorderTraversal(tree.root);
 
-        // tree.BFSrecursive();
-
+        tree.BFSrecursive();System.out.println();
+        tree.deleteNode(5);
+        tree.BFSrecursive();System.out.println();
+        tree.deleteNode(3);
+        tree.BFSrecursive(); System.out.println();
+        tree.deleteNode(7);
+        tree.BFSrecursive();System.out.println();
+        tree.deleteNode(2);
+        tree.BFSrecursive();System.out.println();
+        tree.deleteNode(6);
+        tree.BFSrecursive();System.out.println();
+        tree.deleteNode(4);
+        tree.BFSrecursive(); System.out.println();
+        tree.deleteNode(8);
+        tree.BFSrecursive(); System.out.println();
+        tree.deleteNode(10);
+        
+        System.out.println("after deletion:");
+        tree.BFSrecursive(); System.out.println();
         // TNode returned = tree.search(4);
         // returned = tree.findParent(tree.root , returned);
 
