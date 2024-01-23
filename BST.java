@@ -43,10 +43,6 @@ public class BST
     
     private void recursiveInsertNode(TNode rootNode, TNode node)
     {
-        // if ( rootNode.data == node.data )
-        // {
-            
-        // }
         if (node.data < rootNode.data)
         {   if(rootNode.getLeftChild() == null)
             {
@@ -215,8 +211,8 @@ public class BST
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-        //delete this function //
-    // public void DFSiterative()           //preorder
+    //delete this function //
+    // public void DFSiterative()       //preorder but using loop
     // {
     //     if (this.root != null) 
     //     {
@@ -406,7 +402,7 @@ public class BST
     }
 
 
-    public boolean areSameShape(TNode node1, TNode node2) //if shape of tree same. not considering data
+    public boolean areSameShape(TNode node1, TNode node2) //if shape of two trees same. not considering data
     {
         if (node1 == null && node2 == null) 
         {
